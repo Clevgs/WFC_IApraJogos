@@ -1,7 +1,7 @@
 import wfc.wfc_control as wfc_control
 
 wfc_control.execute_wfc(
-                        filename= "Cave",
+                        filename= "Mapa_para_WFC2",
                         tile_size=1,
                         pattern_width=2,
                         rotations=8,
