@@ -1,3 +1,4 @@
+  
 # -*- coding: utf-8 -*-
 """Base code to load commands from xml and run them."""
 
@@ -15,14 +16,15 @@ def string2bool(strn):
 
 def run_default(run_experiment=False):
     log_filename = f"log_{time.time()}"
-    xdoc = ET.ElementTree(file="samples_cats.xml")
+    xdoc = ET.ElementTree(file="samples.xml")
     default_allowed_attempts = 10
     default_backtracking = False
     log_stats_to_output = wfc_control.make_log_stats()
 
     for xnode in xdoc.getroot():
         name = xnode.get("name", "NAME")
-        if "overlapping" == xnode.tag:
+        # if "overlapping" == xnode.tag:
+        if "simpletiled" == xnode.tag:
             # seed = 3262
             tile_size = int(xnode.get("tile_size", 1))
             # seed for random generation, can be any number
@@ -307,39 +309,9 @@ def run_default(run_experiment=False):
                     else:
                         print(solution)
 
-            # These are included for my colab experiments, remove them if you're not me
-            # os.system(
-            #     'cp -rf "/content/wfc/output/*.tsv" "/content/drive/My Drive/wfc_exper/2"'
-            # )
-            # os.system(
-            #     'cp -r "/content/wfc/output" "/content/drive/My Drive/wfc_exper/2"'
-            # )
-
-
 # run_default("choice")
 # run_default("backtracking")
 # run_default("heuristic")
-# run_default()
+run_default()
 # run_default("choices")
 # run_default("backtracking")
-
-
-wfc_control.execute_wfc(
-                        filename= "City",
-                        tile_size=1,
-                        pattern_width=2,
-                        rotations=8,
-                        output_size=[90,90],
-                        ground=-1,
-                        attempt_limit=5,
-                        output_periodic=True,
-                        input_periodic=True,
-                        loc_heuristic="random",
-                        choice_heuristic="random",
-                        backtracking=False,
-                        global_constraint=False,
-                        log_filename="tes",
-                        log_stats_to_output=None,
-                        visualize=False,
-                        logging=True,
-                    )

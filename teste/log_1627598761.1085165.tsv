@@ -1,0 +1,3 @@
+filename	tile_size	pattern_width	rotations	output_size	ground	attempt_limit	output_periodic	input_periodic	location heuristic	choice heuristic	global constraint	backtracking	attempts	time_start	time_adjacency	adjacency_duration	time solve start	time solve end	solve duration	pattern count	choices	wave	backtracks	propagations	outcome	
+Rooms	1	3	7	(30, 30)	0	10	True	True	entropy	weighted	None	False	1	1627598761.1135204	1627598762.8849475	0.001001119613647461	1627598762.8859487	1627598766.7173157	3.831367015838623	74	142	142	0	284	success	
+Rooms	1	3	7	(30, 30)	0	10	True	True	entropy	weighted	None	False	1	1627598766.7243202	1627598768.4728339	0.0010008811950683594	1627598768.4738348	1627598772.747347	4.273512363433838	74	149	149	0	298	success	
