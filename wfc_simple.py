@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 from PIL import Image
 from IPython import display
 from enum import Enum, auto
+import os
 
 def blend_many(ims):
     """
@@ -125,49 +126,83 @@ def neighbors(location, height, width):
         res.append((Direction.RIGHT, x, y+1))
     return res
 
+# Use this to load multiple images
+def load_images(dir_path):
+    dir_path = dir_path.replace("\\", "/")
+
+    # Arquivo de regras
+    rules_file = open("rules.txt", 'r')
+
+    # TODO generate a Tile namedturple using this list
+
+    # Define uma tupla para representar um tile
+    Tile = namedtuple('Tile', ('name', 'bitmap', 'sides', 'weight'))
+    aux = []
+
+    for line in rules_file:
+        info = line.split(";")
+        name = info[0]
+        sides = info[1]
+        weight = info[2]
+        image = Image.open(dir_path + "/" + name + ".png")
+
+        aux.append(Tile(name, image, sides, weight))
+
+
+    # for f in file_names:
+    #     # Load all images to the array with all sides connections being possible and a weight of 1
+    #     image = Image.open(dir_path + "/" + f)
+    #     aux.append(Tile(f, image, [False, False, False, False], 1))
+
+    return aux
+    
+
 
 
 
 def main():
     
-    # Imagens em bit map por serem pequenas e.e
-    straight_image = Image.open(io.BytesIO(base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAMklEQVQYlWNQVrT9r6xo+988UfN/0yqN/4evOP0/fMXpf9Mqjf/miZr/YfIMowrpqxAAjKLGXfWE8ZAAAAAASUVORK5CYII=')))
-    bend_image = Image.open(io.BytesIO(base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAANklEQVQYlWNQVrT9TwxmIFmheaImXoyisGmVBk6MofDwFSesmHKFRFvdtEoDv2fQFWINHnwKAQHMxl1/fce/AAAAAElFTkSuQmCC')))
-    blank_image = Image.open(io.BytesIO(base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFElEQVQYlWNQVrT9TwxmGFVIX4UAoDOWARI9hF0AAAAASUVORK5CYII=')))
-    cross_image = Image.open(io.BytesIO(base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAU0lEQVQYlWNQVrT9r6xo+988UfN/0yqN/4evOP0/fMXpf9Mqjf/miZr/YfIMRCs0T9T8D8PYFMIwQ9Mqjf/IGFkhMmaASRDCxCsk2mqiPUP1cAQAKI/idfPNuccAAAAASUVORK5CYII=')))
-    t_image = Image.open(io.BytesIO(base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAWUlEQVQYlWNQVrT9r6xo+988UfN/0yqN/4evOP0/fMXpf9Mqjf/miZr/YfIMRCs0T9T8D8PYFMIwQ9Mqjf/IGFkhMmaASRDCxCtEtwIXRvEMPgwPHkKYaIUAow/UaQFDAc4AAAAASUVORK5CYII=')))
+    # # Imagens em bit map por serem pequenas e.e
+    # straight_image = Image.open(io.BytesIO(base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAMklEQVQYlWNQVrT9r6xo+988UfN/0yqN/4evOP0/fMXpf9Mqjf/miZr/YfIMowrpqxAAjKLGXfWE8ZAAAAAASUVORK5CYII=')))
+    # bend_image = Image.open(io.BytesIO(base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAANklEQVQYlWNQVrT9TwxmIFmheaImXoyisGmVBk6MofDwFSesmHKFRFvdtEoDv2fQFWINHnwKAQHMxl1/fce/AAAAAElFTkSuQmCC')))
+    # blank_image = Image.open(io.BytesIO(base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFElEQVQYlWNQVrT9TwxmGFVIX4UAoDOWARI9hF0AAAAASUVORK5CYII=')))
+    # cross_image = Image.open(io.BytesIO(base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAU0lEQVQYlWNQVrT9r6xo+988UfN/0yqN/4evOP0/fMXpf9Mqjf/miZr/YfIMRCs0T9T8D8PYFMIwQ9Mqjf/IGFkhMmaASRDCxCsk2mqiPUP1cAQAKI/idfPNuccAAAAASUVORK5CYII=')))
+    # t_image = Image.open(io.BytesIO(base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAWUlEQVQYlWNQVrT9r6xo+988UfN/0yqN/4evOP0/fMXpf9Mqjf/miZr/YfIMRCs0T9T8D8PYFMIwQ9Mqjf/IGFkhMmaASRDCxCtEtwIXRvEMPgwPHkKYaIUAow/UaQFDAc4AAAAASUVORK5CYII=')))
 
-    # Define uma tupla para representar um tile
-    Tile = namedtuple('Tile', ('name', 'bitmap', 'sides', 'weight'))
+    # # Define uma tupla para representar um tile
+    # Tile = namedtuple('Tile', ('name', 'bitmap', 'sides', 'weight'))
 
-    # Define os tiles
+    # # Define os tiles
+    # global tiles
+    # tiles = [
+    #     Tile('straight_ud', straight_image,
+    #         [False, True, False, True], 1/2),
+    #     Tile('straight_lr', straight_image.transpose(Image.ROTATE_90),
+    #         [True, False, True, False], 1/2),
+    #     Tile('bend_br', bend_image,
+    #         [True, False, False, True], 1/4),
+    #     Tile('bend_tr', bend_image.transpose(Image.ROTATE_90),
+    #         [True, True, False, False], 1/4),
+    #     Tile('bend_tl', bend_image.transpose(Image.ROTATE_180),
+    #         [False, True, True, False], 1/4),
+    #     Tile('bend_bl', bend_image.transpose(Image.ROTATE_270),
+    #         [False, False, True, True], 1/4),
+    #     Tile('t_u', t_image,
+    #         [True, True, True, False], 1/4),
+    #     Tile('t_l', t_image.transpose(Image.ROTATE_90),
+    #         [False, True, True, True], 1/4),
+    #     Tile('t_d', t_image.transpose(Image.ROTATE_180),
+    #         [True, False, True, True], 1/4),
+    #     Tile('t_r', t_image.transpose(Image.ROTATE_270),
+    #         [True, True, False, True], 1/4),
+    #     Tile('blank', blank_image,
+    #         [False, False, False, False], 1),
+    #     Tile('cross', cross_image,
+    #         [True, True, True, True], 1)
+    # ]
+
     global tiles
-    tiles = [
-        Tile('straight_ud', straight_image,
-            [False, True, False, True], 1/2),
-        Tile('straight_lr', straight_image.transpose(Image.ROTATE_90),
-            [True, False, True, False], 1/2),
-        Tile('bend_br', bend_image,
-            [True, False, False, True], 1/4),
-        Tile('bend_tr', bend_image.transpose(Image.ROTATE_90),
-            [True, True, False, False], 1/4),
-        Tile('bend_tl', bend_image.transpose(Image.ROTATE_180),
-            [False, True, True, False], 1/4),
-        Tile('bend_bl', bend_image.transpose(Image.ROTATE_270),
-            [False, False, True, True], 1/4),
-        Tile('t_u', t_image,
-            [True, True, True, False], 1/4),
-        Tile('t_l', t_image.transpose(Image.ROTATE_90),
-            [False, True, True, True], 1/4),
-        Tile('t_d', t_image.transpose(Image.ROTATE_180),
-            [True, False, True, True], 1/4),
-        Tile('t_r', t_image.transpose(Image.ROTATE_270),
-            [True, True, False, True], 1/4),
-        Tile('blank', blank_image,
-            [False, False, False, False], 1),
-        Tile('cross', cross_image,
-            [True, True, True, True], 1)
-    ]
+    tiles = load_images("D:\Workspace\Python\Ia pra jogos\WFC_IApraJogos\Images")
 
     # Define um array com os pesos de cada bloco para acesso rápido
     global weights
