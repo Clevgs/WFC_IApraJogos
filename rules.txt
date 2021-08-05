@@ -1,0 +1,15 @@
+sand_full;[False,False,False,False];1
+trapdoor_top_corner_left;[True,True,False,False];1
+trapdoor_top_corner_right;[False,True,True,False];1
+trapdoor_botton_corner_left;[True,False,False,True];1
+trapdoor_botton_corner_right;[False,False,True];1
+tree_botton_left;[True,True,False,True];1
+tree_botton_right;[False,True,True,True];1
+tree_middle_left;[True,True,False,True];1
+tree_middle_right;[False,True,True,True];1
+tree_top_left;[True,False,False,True];1
+tree_top_right;[False,False,True,True];1
+tree_trunk_left;[True,True,False,False];1
+tree_trunk_right;[False,True,True,False];1
+tree_union;[True,True,False,True];1
+tree_union2;[False,True,True,True];1
