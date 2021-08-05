@@ -1,7 +1,0 @@
-numpy
-hilbertcurve
-imageio
-matplotlib
-
-pytest
-sphinx

@@ -1,8 +1,0 @@
-<samples>
-	<!-- <simpletiled name="Desert" N="3" screenshots="2" periodic="True" width="30" height="30"/> -->
-	<simpletiled name="teste" N="2" screenshots="2" periodic="True" width="24" height="24"/>
-	<!-- <simpletiled name="Summer" width="15" height="15" periodic="False" limit="15"/> -->
-	<!-- <simpletiled name="Rooms" N="3" periodic="True" screenshots="2" width="30" height="30"/> -->
-	<!-- <simpletiled name="Rooms" width="30" height="30"/> -->
-
-</samples>
