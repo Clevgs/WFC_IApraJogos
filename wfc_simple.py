@@ -39,7 +39,7 @@ def show_state(potential, tiles):
     rows = np.array(rows)
     n_rows, n_cols, tile_height, tile_width, _ = rows.shape
     images = np.swapaxes(rows, 1, 2)
-    return Image.fromarray(images.reshape(n_rows*tile_height, n_cols*tile_width, 4))
+    return Image.fromarray(images.reshape(n_rows*tile_height, n_cols*tile_width, 3))
 
 def find_true(array):
     """
@@ -131,7 +131,7 @@ def load_images(dir_path):
     dir_path = dir_path.replace("\\", "/")
 
     # Arquivo de regras
-    rules_file = open("rules.txt", 'r')
+    rules_file = open(dir_path + "/rules.txt", 'r')
 
     # TODO generate a Tile namedturple using this list
 
@@ -140,11 +140,21 @@ def load_images(dir_path):
     aux = []
 
     for line in rules_file:
+        sides = []
+        sides.clear()
         info = line.split(";")
         name = info[0]
-        sides = info[1]
-        weight = info[2]
+        # Take the string array: "[True, False, True, False]" and turn it into a bool array (I hope)
+        a = info[1].replace("[", "").replace("]", "").split(",")
+        for i in a:
+            if i == "True":
+                sides.append(True)
+            else:
+                sides.append(False)
+
+        weight = float(info[2].strip())
         image = Image.open(dir_path + "/" + name + ".png")
+        image = image.convert('RGB')
 
         aux.append(Tile(name, image, sides, weight))
 
@@ -202,7 +212,7 @@ def main():
     # ]
 
     global tiles
-    tiles = load_images("D:\Workspace\Python\Ia pra jogos\WFC_IApraJogos\Images")
+    tiles = load_images("D:\Workspace\Python\Ia pra jogos\WFC_IApraJogos\Images\Plataformer")
 
     # Define um array com os pesos de cada bloco para acesso rápido
     global weights

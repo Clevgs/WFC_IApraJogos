@@ -1,0 +1,16 @@
+tileset_pipe_01_01;[False,False,False,True];0.012
+tileset_pipe_01_02;[True,False,False,True];0.25
+tileset_pipe_01_03;[True,False,True,True];0.015
+tileset_pipe_01_04;[False,False,True,True];0.25
+tileset_pipe_02_01;[False,True,False,True];0.25
+tileset_pipe_02_02;[True,True,False,True];0.015
+tileset_pipe_02_03;[True,True,True,True];0.010
+tileset_pipe_02_04;[False,True,True,True];0.015
+tileset_pipe_03_01;[False,True,False,False];0.012
+tileset_pipe_03_02;[True,True,False,False];0.25
+tileset_pipe_03_03;[True,True,True,False];0.015
+tileset_pipe_03_04;[False,True,True,False];0.25
+tileset_pipe_04_01;[False,False,False,False];0.01
+tileset_pipe_04_02;[True,False,False,False];0.012
+tileset_pipe_04_03;[True,False,True,False];0.25
+tileset_pipe_04_04;[False,False,True,False];0.012

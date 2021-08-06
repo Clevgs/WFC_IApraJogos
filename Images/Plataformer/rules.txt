@@ -1,0 +1,6 @@
+nature-paltformer-tileset-16x16_01_04;[True,False,False,False];0.3
+nature-paltformer-tileset-16x16_01_05;[True,False,True,False];0.3
+nature-paltformer-tileset-16x16_01_06;[False,False,True,False];0.3
+nature-paltformer-tileset-16x16_02_04;[False,False,False,False];0.1
+nature-paltformer-tileset-16x16_05_07;[False,False,False,False];0.011
+nature-paltformer-tileset-16x16_11_05;[False,False,False,False];5

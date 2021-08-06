@@ -1,0 +1,17 @@
+nature-paltformer-tileset-16x16_01_01;[True,False,False,True];0.3
+nature-paltformer-tileset-16x16_01_02;[True,False,True,True];0.3
+nature-paltformer-tileset-16x16_01_03;[False,False,True,True];0.3
+nature-paltformer-tileset-16x16_01_04;[True,False,False,False];0.3
+nature-paltformer-tileset-16x16_01_05;[True,False,True,False];0.3
+nature-paltformer-tileset-16x16_01_06;[False,False,True,False];0.3
+nature-paltformer-tileset-16x16_02_01;[True,True,False,True];0.3
+nature-paltformer-tileset-16x16_02_02;[True,True,False,True];0.3
+nature-paltformer-tileset-16x16_02_03;[False,True,True,True];0.3
+nature-paltformer-tileset-16x16_02_04;[False,False,False,False];0.1
+nature-paltformer-tileset-16x16_02_05;[True,True,True,True];0.001
+nature-paltformer-tileset-16x16_03_01;[True,True,False,False];0.3
+nature-paltformer-tileset-16x16_03_02;[True,True,True,False];0.3
+nature-paltformer-tileset-16x16_03_03;[False,True,True,False];0.3
+nature-paltformer-tileset-16x16_05_07;[False,False,False,False];0.1
+nature-paltformer-tileset-16x16_06_07;[False,False,False,False];0.1
+nature-paltformer-tileset-16x16_11_05;[False,False,False,False];5
